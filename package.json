@@ -1,7 +1,7 @@
 {
 	"name": "@passoa/util",
 	"description": "Node.js's util module for all engines",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"author": {
 		"name": "Joyent",
 		"url": "http://www.joyent.com"

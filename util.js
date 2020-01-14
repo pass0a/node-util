@@ -30,7 +30,7 @@ var getOwnPropertyDescriptors =
 		return descriptors;
 	};
 
-var formatRegExp = /%[sdj%]/g;
+var formatRegExp = /%[sdjc%]/g;
 exports.format = function(f) {
 	if (!isString(f)) {
 		var objects = [];
@@ -57,6 +57,9 @@ exports.format = function(f) {
 				} catch (_) {
 					return '[Circular]';
 				}
+			case '%c':
+				//args[i++]
+				return i++, '';
 			default:
 				return x;
 		}
@@ -236,7 +239,7 @@ function formatValue(ctx, value, recurseTimes) {
 	}
 	if (exports.types.isTypedArray(value)) {
 		var str = '<' + value.constructor.name + ' ';
-		var len = value.length < 20 ? value.length : 20;
+		var len = value.length < 20 ? value.length-1 : 20;
 		for (var idx = 0; idx < len; idx++) {
 			str += value[idx] + ',';
 		}
